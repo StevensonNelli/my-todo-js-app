@@ -1,0 +1,13 @@
+.viewport {
+    height: 100%;
+    padding: 0px 10%;
+    background: #ccc;
+}
+
+.title {
+    color: #6834AC;
+    font-weight: 800;
+    font-size: 36px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
