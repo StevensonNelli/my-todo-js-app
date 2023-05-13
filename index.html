@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>My ToDo List</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script.js"></script>
     <style>
         body {
             font-family: 'Roboto';
@@ -21,6 +25,37 @@
     <section class="viewport">
         <div class="title">
             MY TO-DO LIST
+        </div>
+        <form class="form displayFlex" onsubmit="return onSubmit(this)">
+            <input name="todoInput" class="todo-input" type="text" placeholder="Enter text here..."
+                onchange="onTaskEnter(this)" />
+            <div class="spacer"></div>
+            <select name="priorityMenu" class="todo-menu">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <div class="spacer"></div>
+            <input id="todo-submit-button" class="todo-submit" disabled="true" type="submit" value="Submit">
+        </form>
+
+        <div class="todo-list-info displayFlex">
+            <div class="total-info todo-list-info-item" id="total-info">TOTAL: 0</div>
+            <div class="spacer"></div>
+            <div class="pending-info todo-list-info-item" id="pending-info">PENDING: 0</div>
+            <div class="spacer"></div>
+            <div class="completed-info todo-list-info-item" id="completed-info">COMPLETED: 0</div>
+            <div class="flex"></div>
+            <label for="sortMenu" class="todo-sort-menu-label">Sort By: </label>
+            <select onchange="onSortChange(this)" id="sort-menu" name="sortMenu" class="todo-sort-menu">
+                <option value="high-priority">High Priority</option>
+                <option value="low-priority">Low Priority</option>
+                <option value="medium-priority">Medium Priority</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+        <div class="todo-list-wrapper">
+            <table class="todo-list" id="todo-table"> </table>
         </div>
     </section>
 </body>
